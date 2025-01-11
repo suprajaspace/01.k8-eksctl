@@ -48,9 +48,13 @@ VALIDATE $? "eksctl installation"
 
 
 # kubectl
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.0/2024-09-12/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-mv kubectl /usr/local/bin/kubectl
+# curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.0/2024-09-12/bin/linux/amd64/kubectl
+# chmod +x ./kubectl
+# mv kubectl /usr/local/bin/kubectl
+# updated new commands for kubectl insatll
+curl -LO https://dl.k8s.io/release/v1.26.0/bin/linux/amd64/kubectl
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/kubectl
 VALIDATE $? "kubectl installation"
 
 # kubens
@@ -60,7 +64,7 @@ VALIDATE $? "kubens installation"
 
 
 # Helm
-# curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-# chmod 700 get_helm.sh
-# ./get_helm.sh
-# VALIDATE $? "helm installation"
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+VALIDATE $? "helm installation"
